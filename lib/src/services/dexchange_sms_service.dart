@@ -9,9 +9,9 @@ import 'package:http/http.dart';
 
 /// Represents a service for sending SMS messages using the Dexchange SMS API.
 class DexchangeSmsService {
-  final String BASE_URL = "api.dexchange-sms.com";
-  final String API_PREFIX = "/api";
-  final Map<String, String> API_HEADERS = {
+  final String baseUrl = "api.dexchange-sms.com";
+  final String apiPrefix = "/api";
+  final Map<String, String> apiHeaders = {
     'Content-Type': 'application/json',
     'Accept-Encoding': 'gzip, deflate, br',
     'Accept': 'application/json',
@@ -19,7 +19,7 @@ class DexchangeSmsService {
     'Host': 'api.dexchange-sms.com',
   };
 
-  final List<int> SUCCESS_STATUS_CODES = [200, 201];
+  final List<int> successStatusCodes = [200, 201];
 
   String apiKey;
 
@@ -37,7 +37,7 @@ class DexchangeSmsService {
     required String endpoint,
     Map<String, String>? parameters,
   }) =>
-      Uri.https(BASE_URL, "$API_PREFIX$endpoint", parameters ?? {});
+      Uri.https(baseUrl, "$apiPrefix$endpoint", parameters ?? {});
 
   /// Sends a POST request to the Dexchange SMS API.
   ///
@@ -52,11 +52,11 @@ class DexchangeSmsService {
     final headers = {
       'Authorization': 'Bearer $apiKey',
     };
-    headers.addAll(API_HEADERS);
+    headers.addAll(apiHeaders);
 
     Response response = await http.post(uri, headers: headers, body: jsonEncode(request));
 
-    if (SUCCESS_STATUS_CODES.contains(response.statusCode)) {
+    if (successStatusCodes.contains(response.statusCode)) {
       return Right(ApiResponse(status: response.statusCode, body: jsonDecode(response.body)));
     } else {
       return Left(ApiResponse(status: response.statusCode, body: jsonDecode(response.body)));
