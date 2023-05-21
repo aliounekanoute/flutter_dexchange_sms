@@ -1,5 +1,5 @@
 name: flutter_dexchange_sms
-description: Flutter package for dexchange sms
+description: Flutter package for dexchange sms API, you can send SMS, send OTP and verify it.
 homepage: https://github.com/aliounekanoute/flutter_dexchange_sms
 version: 0.0.1
 
