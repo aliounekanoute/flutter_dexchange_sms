@@ -1,4 +1,4 @@
-[![Dexchnage SMS](https://dexchange-sms.com/banner.png)](https://dexchange-sms.com)
+[![Dexchnage SMS](https://img.shields.io/badge/dexchange--sms-api-blue)](https://dexchange-sms.com) [![Flutter Dexchnage SMS](https://img.shields.io/badge/flutter__dexchange__sms-v0.0.1-orange)](https://pub.dev/packages/flutter_dexchange_sms)
 
 # Flutter Dexchange SMS
 
