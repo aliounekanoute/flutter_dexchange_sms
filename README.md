@@ -46,7 +46,7 @@ try {
 // To send otp sms
 
 try {
-    SendSmsResponse response = dexchangeSms.sendOTP(request: SendOTPRequest(
+    SendOTPResponse response = dexchangeSms.sendOTP(request: SendOTPRequest(
         number: "221777460452",
         service: "DEMO",
         lang: "en" // this field is optional
@@ -58,7 +58,7 @@ try {
 // To verifty OTP
 
 try {
-    SendSmsResponse response = dexchangeSms.sendVerifyOTP(request: SendVerifyOTPRequest(
+    SendVerifyOTPResponse response = dexchangeSms.sendVerifyOTP(request: SendVerifyOTPRequest(
         number: "221777460452",
         service: "DEMO",
         otp: "214045"
