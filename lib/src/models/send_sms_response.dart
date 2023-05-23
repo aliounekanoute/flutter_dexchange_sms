@@ -41,7 +41,7 @@ class SendSmsResponse {
         message: json['message'],
         smsID: json['smsID'],
         totalSms: json['total_sms'],
-        totalCaracteres: json['total_caracteres'],
+        totalCaracteres: json['total_caracteres'] ?? 0,
         invalidNumber: (json['invalidNumber'] as List<dynamic>)
             .map((x) => x['number'] as String)
             .toList(),

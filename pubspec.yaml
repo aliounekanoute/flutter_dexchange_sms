@@ -11,7 +11,7 @@ dependencies:
   either_dart: ^0.4.0
   flutter:
     sdk: flutter
-  http: ^0.13.5
+  http: ^1.0.0
 
 dev_dependencies:
   flutter_test:
