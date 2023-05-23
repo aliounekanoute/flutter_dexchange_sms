@@ -15,7 +15,7 @@ A flutter package for sending SMS messages using the Dexchange SMS API
 1. Add the latest version of package to your pubspec.yaml (and run ```flutter pub get flutter_dexchange_sms```):
 ```yaml
 dependencies:
-    flutter_dexchange_sms: ^0.0.1
+    flutter_dexchange_sms: ^0.0.3
 ```
 
 2. Import the package and use it in your Flutter App.
