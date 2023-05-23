@@ -29,7 +29,7 @@ class FlutterDexchangeSms {
   ///
   /// Throws a [DexchangeApiException] if there is an error sending the SMS.
   Future<SendSmsResponse> sendSms({required SendSmsRequest request}) async {
-    var response = await service.post<SendSmsRequest>(request: request, endpoint: '/sms/send');
+    var response = await service.post<Map<String, dynamic>>(request: request.toJson(), endpoint: '/send/sms');
 
     if (response.isLeft) {
       ErrorMessage errorMessage = ErrorMessage.fromJson(response.left.body);
@@ -48,7 +48,7 @@ class FlutterDexchangeSms {
   ///
   /// Throws a [DexchangeApiException] if there is an error sending the OTP.
   Future<SendOTPResponse> sendOTP({required SendOTPRequest request}) async {
-    var response = await service.post<SendOTPRequest>(request: request, endpoint: '/send/otp');
+    var response = await service.post<Map<String, dynamic>>(request: request.toJson(), endpoint: '/send/otp');
 
     if (response.isLeft) {
       ErrorMessage errorMessage = ErrorMessage.fromJson(response.left.body);
@@ -67,7 +67,7 @@ class FlutterDexchangeSms {
   ///
   /// Throws a [DexchangeApiException] if there is an error verifying the OTP.
   Future<SendVerifyOTPResponse> sendVerifyOTP({required SendVerifyOTPRequest request}) async {
-    var response = await service.post<SendVerifyOTPRequest>(request: request, endpoint: '/verify/otp');
+    var response = await service.post<Map<String, dynamic>>(request: request.toJson(), endpoint: '/verify/otp');
 
     if (response.isLeft) {
       ErrorMessage errorMessage = ErrorMessage.fromJson(response.left.body);

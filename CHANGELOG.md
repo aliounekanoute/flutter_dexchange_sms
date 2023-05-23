@@ -1,3 +1,7 @@
 ## 0.0.1
 
-* TODO: Describe initial release.
+* Flutter package for dexchange sms
+
+## 0.0.2
+
+* Bug fixes and example page
