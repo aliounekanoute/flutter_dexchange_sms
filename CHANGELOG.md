@@ -1,10 +1,12 @@
-# 0.0.4
+# 0.0.5
 
 # Changelog
 
 ## Updated on: 2025-05-07
 ### Last Commit Author: aliounekanoute
 
+- docs(changelog): version added
+- docs(changelog): update
 - chore(depencies): some updateds
 - chore(depencies): some updateds
 - Merge pull request #3 from aliounekanoute/develop

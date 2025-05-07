@@ -37,7 +37,8 @@ class SendSmsResponse {
   /// The 'message', 'smsID', 'total_sms', 'total_caracteres', and 'invalidNumber' keys
   /// in the [json] map are used to extract the corresponding property values for
   /// the [SendSmsResponse] instance.
-  factory SendSmsResponse.fromJson(Map<String, dynamic> json) => SendSmsResponse(
+  factory SendSmsResponse.fromJson(Map<String, dynamic> json) =>
+      SendSmsResponse(
         message: json['message'],
         smsID: json['smsID'],
         totalSms: json['total_sms'],

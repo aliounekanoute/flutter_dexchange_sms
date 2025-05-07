@@ -25,7 +25,8 @@ class SendOTPResponse {
   /// The [json] parameter is a JSON map representing the response data.
   /// The 'message', 'smsID', and 'total_sms' keys in the [json] map are used
   /// to extract the corresponding property values for the [SendOTPResponse] instance.
-  factory SendOTPResponse.fromJson(Map<String, dynamic> json) => SendOTPResponse(
+  factory SendOTPResponse.fromJson(Map<String, dynamic> json) =>
+      SendOTPResponse(
         message: json['message'],
         smsID: json['smsID'],
         totalSms: json['total_sms'],

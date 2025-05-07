@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 
 import 'package:either_dart/either.dart';
@@ -8,7 +7,7 @@ import 'package:http/http.dart';
 
 /// Represents a service for sending SMS messages using the Dexchange SMS API.
 class DexchangeSmsService {
-  final String baseUrl = "api.dexchange-sms.com";
+  final String baseUrl = "api-v2.dexchange-sms.com";
   final String apiPrefix = "/api";
   final Map<String, String> apiHeaders = {
     'Content-Type': 'application/json',
@@ -45,7 +44,8 @@ class DexchangeSmsService {
   ///
   /// Returns a [Future] that completes with either an [ApiResponse] representing the successful response
   /// or an [ApiResponse] representing the error response.
-  Future<Either<ApiResponse, ApiResponse>> post<T>({required T request, required String endpoint}) async {
+  Future<Either<ApiResponse, ApiResponse>> post<T>(
+      {required T request, required String endpoint}) async {
     Uri uri = _getUri(endpoint: endpoint);
 
     final headers = {
@@ -53,13 +53,35 @@ class DexchangeSmsService {
     };
     headers.addAll(apiHeaders);
 
-    Response response = await http.post(uri, headers: headers, body: jsonEncode(request));
+    Response response =
+        await http.post(uri, headers: headers, body: jsonEncode(request));
 
     if (successStatusCodes.contains(response.statusCode)) {
-      return Right(ApiResponse(status: response.statusCode, body: jsonDecode(response.body)));
+      return Right(ApiResponse(
+          status: response.statusCode, body: jsonDecode(response.body)));
     } else {
-      return Left(ApiResponse(status: response.statusCode, body: jsonDecode(response.body)));
+      return Left(ApiResponse(
+          status: response.statusCode, body: jsonDecode(response.body)));
+    }
+  }
+
+  Future<Either<ApiResponse, ApiResponse>> get<T>(
+      {required String endpoint, Map<String, String>? parameters}) async {
+    Uri uri = _getUri(endpoint: endpoint, parameters: parameters);
+
+    final headers = {
+      'Authorization': 'Bearer $apiKey',
+    };
+    headers.addAll(apiHeaders);
+
+    Response response = await http.get(uri, headers: headers);
+
+    if (successStatusCodes.contains(response.statusCode)) {
+      return Right(ApiResponse(
+          status: response.statusCode, body: jsonDecode(response.body)));
+    } else {
+      return Left(ApiResponse(
+          status: response.statusCode, body: jsonDecode(response.body)));
     }
   }
 }
-

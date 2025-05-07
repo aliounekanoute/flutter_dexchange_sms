@@ -15,7 +15,8 @@ class SendVerifyOTPResponse {
   /// The [json] parameter is a JSON map representing the response data.
   /// The 'message' key in the [json] map is used to extract the corresponding
   /// property value for the [SendVerifyOTPResponse] instance.
-  factory SendVerifyOTPResponse.fromJson(Map<String, dynamic> json) => SendVerifyOTPResponse(
+  factory SendVerifyOTPResponse.fromJson(Map<String, dynamic> json) =>
+      SendVerifyOTPResponse(
         message: json['message'] ?? '',
       );
 }
