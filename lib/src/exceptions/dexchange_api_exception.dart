@@ -1,4 +1,3 @@
-
 /// Represents an exception specific to the Dexchange API.
 class DexchangeApiException implements Exception {
   /// The error message associated with the exception.
@@ -19,4 +18,3 @@ class DexchangeApiException implements Exception {
   @override
   String toString() => 'DexchangeApiException: $status - $message';
 }
-

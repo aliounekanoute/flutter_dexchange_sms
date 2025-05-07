@@ -1,4 +1,3 @@
-
 import 'package:flutter_dexchange_sms/src/exceptions/dexchange_api_exception.dart';
 import 'package:flutter_dexchange_sms/src/models/error_message.dart';
 import 'package:flutter_dexchange_sms/src/services/dexchange_sms_service.dart';
@@ -29,11 +28,13 @@ class FlutterDexchangeSms {
   ///
   /// Throws a [DexchangeApiException] if there is an error sending the SMS.
   Future<SendSmsResponse> sendSms({required SendSmsRequest request}) async {
-    var response = await service.post<Map<String, dynamic>>(request: request.toJson(), endpoint: '/send/sms');
+    var response = await service.post<Map<String, dynamic>>(
+        request: request.toJson(), endpoint: '/send/sms');
 
     if (response.isLeft) {
       ErrorMessage errorMessage = ErrorMessage.fromJson(response.left.body);
-      throw DexchangeApiException(status: response.left.status, message: errorMessage.message);
+      throw DexchangeApiException(
+          status: response.left.status, message: errorMessage.message);
     } else {
       return SendSmsResponse.fromJson(response.right.body);
     }
@@ -48,11 +49,13 @@ class FlutterDexchangeSms {
   ///
   /// Throws a [DexchangeApiException] if there is an error sending the OTP.
   Future<SendOTPResponse> sendOTP({required SendOTPRequest request}) async {
-    var response = await service.post<Map<String, dynamic>>(request: request.toJson(), endpoint: '/send/otp');
+    var response = await service.post<Map<String, dynamic>>(
+        request: request.toJson(), endpoint: '/send/otp');
 
     if (response.isLeft) {
       ErrorMessage errorMessage = ErrorMessage.fromJson(response.left.body);
-      throw DexchangeApiException(status: response.left.status, message: errorMessage.message);
+      throw DexchangeApiException(
+          status: response.left.status, message: errorMessage.message);
     } else {
       return SendOTPResponse.fromJson(response.right.body);
     }
@@ -66,15 +69,17 @@ class FlutterDexchangeSms {
   /// from the Dexchange SMS service.
   ///
   /// Throws a [DexchangeApiException] if there is an error verifying the OTP.
-  Future<SendVerifyOTPResponse> sendVerifyOTP({required SendVerifyOTPRequest request}) async {
-    var response = await service.post<Map<String, dynamic>>(request: request.toJson(), endpoint: '/verify/otp');
+  Future<SendVerifyOTPResponse> sendVerifyOTP(
+      {required SendVerifyOTPRequest request}) async {
+    var response = await service.post<Map<String, dynamic>>(
+        request: request.toJson(), endpoint: '/verify/otp');
 
     if (response.isLeft) {
       ErrorMessage errorMessage = ErrorMessage.fromJson(response.left.body);
-      throw DexchangeApiException(status: response.left.status, message: errorMessage.message);
+      throw DexchangeApiException(
+          status: response.left.status, message: errorMessage.message);
     } else {
       return SendVerifyOTPResponse.fromJson(response.right.body);
     }
   }
 }
-

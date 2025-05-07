@@ -1,8 +1,8 @@
-
 /// Represents the response from an API request.
 class ApiResponse {
   /// The status of the API response.
   int status;
+
   /// The body of the API response.
   dynamic body;
 

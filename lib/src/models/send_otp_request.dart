@@ -9,6 +9,9 @@ class SendOTPRequest {
   /// The language code for the OTP message. Can be null.
   String? lang;
 
+  /// The canal sms or whatsapp. Can be null.
+  String? canal;
+
   /// Creates a new instance of [SendOTPRequest].
   ///
   /// The [number] parameter represents the phone number to which the OTP will be sent.
@@ -29,5 +32,6 @@ class SendOTPRequest {
         'number': number,
         'service': service,
         'lang': lang ?? 'en',
+        'canal': canal ?? 'sms'
       };
 }
