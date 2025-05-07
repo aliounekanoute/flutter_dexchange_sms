@@ -5,6 +5,7 @@
 ## Updated on: 2025-05-07
 ### Last Commit Author: aliounekanoute
 
+- feat(*): dexchange api version updated
 - docs(changelog): version added
 - docs(changelog): update
 - chore(depencies): some updateds
